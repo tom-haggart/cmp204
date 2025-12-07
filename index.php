@@ -1,5 +1,4 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include_once "includes/head.php" ?>

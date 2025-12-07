@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include_once "includes/head.php" ?>
-    <title>Home - Save Point Summit</title>
+    <title>Dashboard - Save Point Summit</title>
 </head>
 <body>
     <div class="container">

@@ -1,5 +1,5 @@
-  <!-- jQuery library -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
-  <!-- Latest compiled Bootstrap JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <footer class="border-top border-custom-dark container mt-auto py-2">
+      <ul class="nav nav-pills">
+          <li class="nav-item"><a href="req.php" class="nav-link ps-0">CMP204 Project Requirements</a></li>
+      </ul>
+  </footer>

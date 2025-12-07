@@ -5,7 +5,6 @@
     </li>
     <li class="nav-item"><a href="history.php" class="nav-link">History</a></li>
     <li class="nav-item"><a href="teamMembers.php" class="nav-link">Team Members</a></li>
-    <li class="nav-item"><a href="req.php" class="nav-link">Requirements</a></li>
 
     <!--only show if user is not signed in-->
     <li class="nav-item"><a href="register.php" class="nav-link">Register</a></li>

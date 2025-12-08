@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once "includes/head.php" ?>
-    <title>Login - Save Point Summit</title>
-</head>
-<body class="d-flex flex-column min-vh-100">
-    <div class="container">
-        <?php include_once "includes/header.php" ?>
-    </div>
+<form>
+    <?php include "includes/userForm.php" ?>
 
-    <div class="container flex-grow-1">
-        <h1>Login</h1>
-        <p>Form needed here to allow the user to login.</p>
-    </div>
-
-    <div class="container mt-auto">
-        <?php include_once "includes/footer.php" ?>
-    </div>
-    <?php include_once "includes/scripts.php" ?>
-</body>
-</html>
+    <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold my-4" style="background-color: #007BFF; border: none;">
+        Login
+    </button>
+</form>

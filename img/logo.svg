@@ -1,0 +1,75 @@
+<svg width="126" height="241" viewBox="37 27 126 241" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradOrange" x1="20%" y1="0%" x2="80%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFD580;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#E64A19;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="gradOrangeSpikeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFA726;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#EF6C00;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="gradOrangeSpikeRight" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFA726;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#EF6C00;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="gradBlueLight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4FC3F7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0288D1;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="gradBlueDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1565C0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="gradBlueDeep" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:#0D47A1;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#002171;stop-opacity:1" />
+        </linearGradient>
+
+        <style>
+            .crystal-stroke {
+                /* Used background color to simulate "space" between shards */
+                stroke: #1a1a2e;
+                stroke-width: 6; /* Increased thickness for visible separation */
+                stroke-linejoin: round;
+                stroke-linecap: round;
+            }
+        </style>
+    </defs>
+
+    <g transform="translate(0, 5)">
+
+        <path d="M100 25 L65 80 L90 100 L100 85 Z" fill="url(#gradBlueLight)" class="crystal-stroke"/>
+        <path d="M100 25 L135 80 L110 100 L100 85 Z" fill="url(#gradBlueDeep)" class="crystal-stroke"/>
+
+        <path d="M65 80 L50 115 L70 130 L90 100 Z" fill="#29B6F6" class="crystal-stroke"/>
+        <path d="M135 80 L150 115 L130 130 L110 100 Z" fill="#1976D2" class="crystal-stroke"/>
+
+
+        <path d="M100 85 L130 115 L120 175 L100 195 L80 175 L70 115 Z" fill="url(#gradOrange)" class="crystal-stroke"/>
+
+        <path d="M70 130 L80 175 L70 190 L50 140 L50 115 Z" fill="url(#gradBlueLight)" class="crystal-stroke"/>
+
+        <path d="M130 130 L120 175 L130 190 L150 140 L150 115 Z" fill="url(#gradBlueDeep)" class="crystal-stroke"/>
+
+
+        <path d="M50 140 L70 190 L60 200 L40 160 Z" fill="url(#gradOrangeSpikeLeft)" class="crystal-stroke"/>
+
+        <path d="M150 140 L130 190 L140 200 L160 160 Z" fill="url(#gradOrangeSpikeRight)" class="crystal-stroke"/>
+
+
+        <path d="M80 175 L100 195 L100 260 L70 190 Z" fill="#1E88E5" class="crystal-stroke"/>
+
+        <path d="M120 175 L100 195 L100 260 L130 190 Z" fill="#0D47A1" class="crystal-stroke"/>
+
+        <path d="M70 190 L100 260 L60 200 Z" fill="#1565C0" class="crystal-stroke"/>
+
+        <path d="M130 190 L100 260 L140 200 Z" fill="#002171" class="crystal-stroke"/>
+
+    </g>
+</svg>

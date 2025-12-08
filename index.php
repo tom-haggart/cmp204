@@ -1,25 +1,71 @@
-<!doctype html>
+<?php
+    include_once "includes/session.php";
 
+    $action = isset($_GET['action']) && $_GET['action'] === 'register' ? 'register' : 'login';
+    $active_classes   = 'btn text-white w-50 rounded-3 shadow-sm';
+    $active_style     = 'style="background-color: #101922;"';
+
+    $inactive_classes = 'btn text-secondary w-50 border-0';
+    $inactive_style   = '';
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>CMP204 Unit Two Coursework Template</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="javascript/script.js"></script>
+    <?php include_once "includes/head.php" ?>
+    <title>Save Point Summit</title>
 </head>
-<body>
-    <nav>
-        <?php include_once "includes/links.php" ?>
-    </nav>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container">
+        <?php include_once "includes/header.php" ?>
+    </div>
 
-    <h1>Home</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orci phasellus egestas tellus. Viverra mauris in aliquam sem. Enim diam vulputate ut pharetra. Gravida neque convallis a cras. Aliquet nibh praesent tristique magna sit amet. In hendrerit gravida rutrum quisque non tellus orci ac. Nulla posuere sollicitudin aliquam ultrices sagittis. Pulvinar pellentesque habitant morbi tristique senectus et netus. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Nibh nisl condimentum id venenatis a condimentum vitae. Orci nulla pellentesque dignissim enim sit.</p>
+    <div class="container flex-grow-1">
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="row w-100 shadow-lg g-0 mt-4">
+          <div class="col-lg-6 d-flex justify-content-center align-items-center p-5 bg-alt">
+            <div class="rounded-3 text-white">
+              <div class="d-flex justify-content-left align-items-center">
+                <img src="img/logo.svg" class="me-3 img-fluid w-20 w-lg-auto" alt="Logo">
+                <span class="fs-2">Save Point Summit</span>
+              </div>
+              <p class="fs-2 mt-3 mb-4 fw-semibold">Manage Your Summit Experience</p>
+              <p class="fs-5">Log in to view your attendance history, event schedule, and connect with fellow gamers.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 p-5" style="background-color: #101922;">
+            <div class="w-75 mx-auto">
+              <div class="d-flex p-1 rounded-3 mb-4" style="background-color: #1B2733;">
+            <button onclick="location.href='?action=login'"
+              class="<?php echo ($action === 'login') ? $active_classes : $inactive_classes; ?>"
+              <?php echo ($action === 'login') ? $active_style : $inactive_style; ?>
+              type="button">
+              Login
+            </button>
 
-    <!-- jQuery library -->
-		<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+            <!-- Register Button -->
+            <button onclick="location.href='?action=register'"
+              class="<?php echo ($action === 'register') ? $active_classes : $inactive_classes; ?>"
+              <?php echo ($action === 'register') ? $active_style : $inactive_style; ?>
+              type="button">
+              Register
+            </button>
+              </div>
+                <?php
+                if ($action === 'register') {
+                    include "register.php";
+                } else {
+                    include "login.php";
+                }
+                ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Latest compiled Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <div class="container mt-auto">
+        <?php include_once "includes/footer.php" ?>
+    </div>
+    <?php include_once "includes/scripts.php" ?>
 </body>
 </html>

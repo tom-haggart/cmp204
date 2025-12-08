@@ -1,8 +1,11 @@
+<?php
+    include_once "includes/session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include_once "includes/head.php" ?>
-    <title>Team Members - Save Point Summit</title>
+    <title>Dashboard - Save Point Summit</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
@@ -10,8 +13,7 @@
     </div>
 
     <div class="container flex-grow-1">
-        <h1>Team Members</h1>
-        <p>Should contain some fictitious text about the convention organisers</p>
+        <h1>Dashboard</h1>
     </div>
 
     <div class="container mt-auto">

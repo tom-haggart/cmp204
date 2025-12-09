@@ -12,7 +12,7 @@ if ($email === '' || $password === '') {
     exit();
 }
 
-    $sql = "SELECT password FROM users WHERE email = ?";
+    $sql = "SELECT id, password FROM users WHERE email = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
@@ -21,10 +21,12 @@ if ($email === '' || $password === '') {
     if ($row = mysqli_fetch_assoc($result)) {
 
         $storedHash = $row["password"];
+        $userId = $row["id"];
 
         if (password_verify($password, $storedHash)) {
+            $_SESSION["user_id"] = $userId;
             $_SESSION["email"] = $email;
-            header("Location: dashboard.php");
+            header("Location: agenda.php");
             exit();
         } else {
             header("Location: index.php?action=login&error=wrongpass");

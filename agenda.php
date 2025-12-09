@@ -1,29 +1,27 @@
 <?php
     include_once "includes/session.php";
     include_once "includes/connectionString.php";
-    include_once "includes/users.php";
     include_once "includes/events.php";
 
     $userId = $_SESSION["user_id"];
 
-if (isset($_POST['action']) && $_POST['action'] == 'unattend' && isset($_POST['user_id']) && isset($_POST['event_id'])) {
-    $eventId = (int)$_POST['event_id'];
+    if (isset($_POST['action']) && $_POST['action'] == 'attend' && isset($_POST['user_id']) && isset($_POST['event_id'])) {
+        $eventId = (int)$_POST['event_id'];
 
-    if (unattendEvent($conn, $userId, $eventId)) {
-        header("Location: profile.php?status=unattended");
-        echo "<p style='color:green;'>You're un-attended!</p>";
-        exit;
-    } else {
-        echo "<p style='color:red;'>Error: Could not process un-attend request.</p>";
+        if (attendEvent($conn, $userId, $eventId)) {
+            header("Location: agenda.php?status=attending");
+            echo "<p style='color:green;'>You're signed up!</p>";
+            exit;
+        } else {
+            echo "<p style='color:red;'>Error: Could not process request.</p>";
+        }
     }
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include_once "includes/head.php" ?>
-    <title>Profile - Save Point Summit</title>
+    <title>Agenda - Save Point Summit</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
@@ -31,25 +29,17 @@ if (isset($_POST['action']) && $_POST['action'] == 'unattend' && isset($_POST['u
     </div>
 
     <div class="container flex-grow-1">
-        <h1>Profile</h1>
-        <div class="">
-            <table class='table'>
-                <tr>
-                    <th>Email</th>
-                    <th>Actions</th>
-                </tr>
-            <?php
-                $user = getUser($conn, $userId);
-                echo "<tr><td>" . $user["email"] . "</td>
-                 <td><button>Edit</button></td>";
-            ?>
-                </tr>
-            </table>
-        </div>
-        <section class="">
-            <h2>My Events</h2>
+        <h1>Agenda</h1>
+
         <?php
-            $events = getUserEvents($conn, $userId);
+            if (isset($_GET["status"]) && $_GET["status"] === "attending") {
+                echo "<p class='text-success'>You're signed up, <a href='profile.php'>Click here to view your events</a></p>";
+            }
+        ?>
+
+        <section class="">
+        <?php
+            $events = getEvents($conn);
 
             if (!empty($events)) {
                 echo "<table class='table table-striped'>";
@@ -63,12 +53,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'unattend' && isset($_POST['u
                     echo "<td>" . htmlspecialchars($event["type"]) . "</td>";
                     echo "<td>" . htmlspecialchars($event["name"]) . "</td>";
                     echo "<td>" . htmlspecialchars($event["description"]) . "</td>";
-                    echo "<td width='105'><form action='' method='POST'>
-                    <input type='hidden' name='action' value='unattend'>
-                    <input type='hidden' name='event_id' value='" . htmlspecialchars($event["id"]) . "'>
-                    <input type='hidden' name='user_id' value='" . htmlspecialchars($user["id"]) . "'>
-                    <button type='submit'>Un-attend</button>
-                    </form></td>";
+                    if (isUserAttendingEvent($conn, $userId, $event["id"])) {
+                        echo "<td width='105'>You're Attending</td>";
+                    } else {
+                        echo "<td width='105'><form action='' method='POST'>
+                        <input type='hidden' name='action' value='attend'>
+                        <input type='hidden' name='event_id' value='" . htmlspecialchars($event["id"]) . "'>
+                        <input type='hidden' name='user_id' value='" . htmlspecialchars($userId) . "'>
+                        <button type='submit'>Attend</button>
+                        </form></td>";
+                    }
                     echo "</tr>";
                     $prev_day_num = $event["day_num"];
                 }

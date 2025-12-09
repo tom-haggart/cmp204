@@ -1,7 +1,7 @@
 <?php
+  session_start();
+  session_unset();
+  session_destroy();
 
-//end session
-
-//redirect user to index.php
-//header("Location: http://www.example.com/");
+  header("Location: index.php?action=login&status=loggedout");
 ?>

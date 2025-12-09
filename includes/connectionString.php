@@ -1,12 +1,8 @@
 <?php
-
 /*
 	Desc: Example connection string
-	
 	Author: Lynsay A. Shepherd
-	
 	Date: October 2023
-	
 */
 
 // PROD connection details
@@ -21,10 +17,8 @@ $dbusername = "root";
 $dbpassword = "root";
 $dbname = "sql2403695";
 
-
 $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
-// mysqli_close($conn);
 if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }

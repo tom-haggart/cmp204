@@ -35,12 +35,13 @@
           <div class="col-lg-6 p-5" style="background-color: #101922;">
             <div class="w-75 mx-auto">
               <div class="d-flex p-1 rounded-3 mb-4" style="background-color: #1B2733;">
-            <button onclick="location.href='?action=login'"
+            
+            
+              <button onclick="location.href='?action=login'"
               class="<?php echo ($action === 'login') ? $active_classes : $inactive_classes; ?>"
               <?php echo ($action === 'login') ? $active_style : $inactive_style; ?>
               type="button">
               Login
-            </button>
 
             <!-- Register Button -->
             <button onclick="location.href='?action=register'"
@@ -50,6 +51,28 @@
               Register
             </button>
               </div>
+                <?php
+                  if (isset($_GET["action"]) && isset($_GET["status"])) {
+                    $action = $_GET["action"];
+                    $status = $_GET["status"];
+                    
+                    if ($action === 'register') {
+                      if ($status === 'error') {
+                        echo "<p class='text-danger'>Registration failed, please try again</p>";
+                      }
+                    }
+
+                    if ($action === 'login') {
+                      if ($status === 'error') {
+                        echo "<p class='text-danger'>Login failed, please try again</p>";
+                      }
+                    
+                      if ($status === 'success') {
+                        echo "<p class='text-success'>Registered successfully, please login</p>";
+                      }
+                    }
+                  }
+                ?>
                 <?php
                 if ($action === 'register') {
                     include "register.php";
